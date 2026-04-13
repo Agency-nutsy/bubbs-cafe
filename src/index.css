@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Base background: Warm sweet cream */
+    --background: 35 40% 98%;
+    /* Base text: Deep espresso brown */
+    --foreground: 15 25% 15%;
+
+    --card: 35 40% 99%;
+    --card-foreground: 15 25% 15%;
+
+    --popover: 35 40% 99%;
+    --popover-foreground: 15 25% 15%;
+
+    /* Primary: Soft aesthetic boba pink */
+    --primary: 340 70% 75%;
+    --primary-foreground: 15 25% 15%;
+
+    /* Secondary: Soft latte beige */
+    --secondary: 35 30% 92%;
+    --secondary-foreground: 15 25% 15%;
+
+    /* Muted: Soft grey-brown */
+    --muted: 35 20% 90%;
+    --muted-foreground: 15 15% 45%;
+
+    /* Accent: Brown sugar caramel */
+    --accent: 30 70% 60%;
+    --accent-foreground: 35 40% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 35 20% 88%;
+    --input: 35 20% 88%;
+    --ring: 340 70% 75%;
+
+    /* Softer, rounder edges for a trendy cafe vibe */
+    --radius: 1rem;
+
+    --sidebar-background: 35 40% 96%;
+    --sidebar-foreground: 15 25% 15%;
+    --sidebar-primary: 340 70% 75%;
+    --sidebar-primary-foreground: 15 25% 15%;
+    --sidebar-accent: 35 30% 92%;
+    --sidebar-accent-foreground: 15 25% 15%;
+    --sidebar-border: 35 20% 88%;
+    --sidebar-ring: 340 70% 75%;
+
+    /* Bubbs Custom Palette */
+    --bubbs-pink: 340 70% 75%;
+    --bubbs-cream: 35 40% 96%;
+    --bubbs-coffee: 15 25% 15%;
+    --bubbs-caramel: 30 70% 60%;
+    --bubbs-matcha: 110 30% 65%;
+    --bubbs-taro: 270 40% 75%;
+  }
+
+  .dark {
+    /* Base background: Dark roasted coffee */
+    --background: 15 25% 10%;
+    /* Base text: Soft cream */
+    --foreground: 35 40% 96%;
+    
+    --card: 15 25% 12%;
+    --card-foreground: 35 40% 96%;
+    
+    --popover: 15 25% 12%;
+    --popover-foreground: 35 40% 96%;
+    
+    /* Primary: Deeper, muted rose for dark mode */
+    --primary: 340 60% 65%;
+    --primary-foreground: 15 25% 10%;
+    
+    --secondary: 15 20% 18%;
+    --secondary-foreground: 35 40% 96%;
+    
+    --muted: 15 20% 18%;
+    --muted-foreground: 35 15% 65%;
+    
+    /* Accent: Warm caramel glow */
+    --accent: 30 70% 60%;
+    --accent-foreground: 15 25% 10%;
+    
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --border: 15 20% 20%;
+    --input: 15 20% 20%;
+    --ring: 340 60% 65%;
+    
+    --sidebar-background: 15 25% 10%;
+    --sidebar-foreground: 35 40% 96%;
+    --sidebar-primary: 340 60% 65%;
+    --sidebar-primary-foreground: 15 25% 10%;
+    --sidebar-accent: 15 20% 18%;
+    --sidebar-accent-foreground: 35 40% 96%;
+    --sidebar-border: 15 20% 20%;
+    --sidebar-ring: 340 60% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+
+  ::selection {
+    background: hsl(340 70% 75% / 0.3);
+    color: hsl(15 25% 15%);
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(340 70% 75%), hsl(30 70% 60%));
+  }
+  
+  .dark .text-gradient {
+    background-image: linear-gradient(135deg, hsl(340 60% 65%), hsl(30 70% 60%));
+  }
+
+  .bg-grain {
+    position: relative;
+  }
+
+  .bg-grain::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .hero-overlay {
+    background: linear-gradient(
+      180deg,
+      hsl(15 25% 15% / 0.3) 0%,
+      hsl(15 25% 15% / 0.6) 50%,
+      hsl(15 25% 15% / 0.85) 100%
+    );
+  }
+
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      hsl(340 70% 75% / 0.4),
+      hsl(30 70% 60% / 0.4),
+      transparent
+    );
+  }
+
+  .glass {
+    backdrop-filter: blur(16px) saturate(180%);
+    background: hsl(var(--card) / 0.85);
+  }
+
+  .card-hover {
+    @apply transition-all duration-300;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px -12px hsl(340 70% 75% / 0.2);
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground));
+}
