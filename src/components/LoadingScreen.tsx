@@ -37,52 +37,91 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
   }, [onComplete]);
 
   return (
-    <motion.div
-      className="fixed inset-0 z-[9999] flex flex-col items-center justify-center"
-      style={{
-        background: "linear-gradient(135deg, hsl(5, 50%, 12%) 0%, hsl(8, 65%, 22%) 40%, hsl(35, 60%, 25%) 100%)",
-      }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.4, ease: "easeOut" }}
-    >
-      <motion.h1
-        className="font-display text-5xl sm:text-6xl font-bold mb-8 text-center"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        <span className="text-[hsl(35,70%,65%)]">Yo</span>
-        <span className="text-[hsl(0,0%,95%)]"> Tibet</span>
-      </motion.h1>
-
+    <AnimatePresence>
       <motion.div
-        className="w-56 sm:w-64 h-1.5 rounded-full overflow-hidden"
-        style={{ background: "hsla(0,0%,100%,0.15)" }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.3 }}
+        className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#09090b] overflow-hidden"
+        // Smooth, modern scale-up exit
+        exit={{ opacity: 0, scale: 1.1, filter: "blur(10px)" }}
+        transition={{ duration: 0.7, ease: [0.25, 1, 0.5, 1] }}
       >
-        <motion.div
-          className="h-full rounded-full"
-          style={{
-            background: "linear-gradient(90deg, hsl(35,70%,55%), hsl(8,65%,50%))",
-          }}
-          initial={{ width: "0%" }}
-          animate={{ width: `${progress}%` }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-        />
-      </motion.div>
+        {/* Subtle, cool-toned ambient glow behind the text */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <motion.div
+            className="w-[450px] h-[450px] rounded-full"
+            style={{
+              background: "radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, rgba(0,0,0,0) 65%)",
+            }}
+            animate={{ scale: [1, 1.15, 1], opacity: [0.5, 0.8, 0.5] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          />
+        </div>
 
-      <motion.p
-        className="mt-4 text-sm tracking-widest uppercase"
-        style={{ color: "hsla(0,0%,100%,0.4)" }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.5 }}
-      >
-        Authentic Tibetan Kitchen
-      </motion.p>
-    </motion.div>
+        <div className="relative z-10 flex flex-col items-center w-full max-w-md px-6">
+          {/* Main Title Animation */}
+          <motion.h1
+            className="font-display text-6xl sm:text-7xl font-bold mb-3 text-center tracking-tight"
+            initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <span 
+              className="text-transparent bg-clip-text"
+              style={{ 
+                backgroundImage: "linear-gradient(135deg, #a5b4fc, #6366f1)",
+                filter: "drop-shadow(0px 0px 12px rgba(99, 102, 241, 0.3))"
+              }}
+            >
+              Bubbs
+            </span>
+            <span className="text-zinc-100"> Cafe</span>
+          </motion.h1>
+
+          {/* Tagline */}
+          <motion.p
+            className="mb-12 text-xs sm:text-sm tracking-[0.3em] text-[#818cf8] font-medium uppercase"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.6, ease: "easeOut" }}
+          >
+            Vibes & Bites • Satya Niketan
+          </motion.p>
+
+          {/* Modern Progress Container */}
+          <div className="w-full flex flex-col items-center">
+            {/* Number Counter positioned right above the bar */}
+            <motion.div 
+              className="w-64 sm:w-80 flex justify-end mb-2"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.3 }}
+            >
+              <span className="text-zinc-400 text-xs font-mono font-medium tracking-wider">
+                {progress}%
+              </span>
+            </motion.div>
+
+            {/* Sleek Loading Bar */}
+            <motion.div
+              className="w-64 sm:w-80 h-[3px] rounded-full overflow-hidden bg-zinc-800/50"
+              initial={{ opacity: 0, scaleX: 0.8 }}
+              animate={{ opacity: 1, scaleX: 1 }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+            >
+              <motion.div
+                className="h-full rounded-full"
+                style={{
+                  background: "linear-gradient(90deg, #818cf8, #4f46e5)",
+                  boxShadow: "0 0 10px rgba(99, 102, 241, 0.6)"
+                }}
+                initial={{ width: "0%" }}
+                animate={{ width: `${progress}%` }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+              />
+            </motion.div>
+          </div>
+        </div>
+      </motion.div>
+    </AnimatePresence>
   );
 };
 
