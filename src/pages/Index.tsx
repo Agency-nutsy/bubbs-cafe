@@ -5,16 +5,16 @@ import { motion } from "framer-motion";
 import ScrollReveal from "@/components/ScrollReveal";
 
 // You will need to update these image imports with your actual assets
-import heroSlide1 from "@/assets/hero-slide-1.jpg";
-import heroSlide2 from "@/assets/hero-slide-2.png";
-import heroSlide3 from "@/assets/hero-slide-3.png";
-import heroSlide4 from "@/assets/hero-slide-4.png";
-import bobaImg from "@/assets/momos.jpg"; // Placeholder
-import coffeeImg from "@/assets/thukpa.jpg"; // Placeholder
-import sandwichImg from "@/assets/tingmo.jpg"; // Placeholder
-import pastryImg from "@/assets/butter-tea.jpg"; // Placeholder
-import gallery1 from "@/assets/gallery-1.jpg";
-import gallery2 from "@/assets/gallery-2.jpg";
+import heroSlide1 from "@/assets/hero 1.webp";
+import heroSlide2 from "@/assets/hero 2.webp";
+import heroSlide3 from "@/assets/hero 3.webp";
+import heroSlide4 from "@/assets/hero 4.webp";
+import bobaImg from "@/assets/boba.jpg"; // Placeholder
+import coffeeImg from "@/assets/latte.webp"; // Placeholder
+import sandwichImg from "@/assets/sandwich.jpg"; // Placeholder
+import pastryImg from "@/assets/pastry.webp"; // Placeholder
+import gallery1 from "@/assets/hero 1.webp";
+import gallery2 from "@/assets/hero 3.webp";
 
 // NAP Data directly from Google Maps
 const PHONE = ""; // No phone number currently listed on the Google Business Profile
