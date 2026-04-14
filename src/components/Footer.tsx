@@ -4,7 +4,7 @@ import { Instagram, Phone, MapPin } from "lucide-react";
 const PHONE = ""; // Left blank since no phone is currently listed
 const PHONE_DISPLAY = "Add Phone Number";
 const ADDRESS = "H5Q9+2HH, Satya Niketan Rd, near medicos, Moti Bagh II, Satya Niketan, Moti Bagh, New Delhi, Delhi 110021, India";
-const MAPS_LINK = "google.com/maps/place/Bubbs+cafe/data=!4m2!3m1!1s0x0:0xe6aa3c93d75f1a0e?sa=X&ved=1t:2428&ictx=111";
+const MAPS_LINK = "https://www.google.com/maps/place/Bubbs+cafe/data=!4m2!3m1!1s0x0:0xe6aa3c93d75f1a0e?sa=X&ved=1t:2428&ictx=111";
 
 const Footer = () => (
   <footer className="bg-foreground text-background relative overflow-hidden">
